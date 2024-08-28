@@ -4,5 +4,8 @@
   },
   "scripts": {
     "build": "tailwindcss --input ./src/input.css --output ./public/output.css"
+  },
+  "dependencies": {
+    "flowbite": "^2.5.1"
   }
 }
