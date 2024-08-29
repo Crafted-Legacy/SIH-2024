@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crafted Legacy</title>
     <link rel="shortcut icon" href="../img/logo-dark.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Matemasie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee+Tint&family=Matemasie&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="./single.css">
+    <style>
+      .font-custom{
+        font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+      }
+
+      .logo-font::first-letter{
+        font-family: "Bungee Tint", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xx-large;
+      }
+
+    </style>
 </head>
 <body class="bg-gray-200" >
 
@@ -24,7 +48,14 @@
       <div class="flex items-center space-x-8">
         <div class="shrink-0">
           <a href="#" title="" class="">
-            <img class="hidden w-24 h-24 dark:block" src="../img/logo-light.png" alt="">
+            <div class="flex items-center justify-center content-center">
+              <div>
+                <img class="hidden w-24 h-24 dark:block" src="../img/logo-light.png" alt="">
+              </div>
+              <div class="logo-font">
+                <h3 class="text-xl font-custom">Crafted Legacy.</h3>
+              </div>
+            </div>
           </a>
         </div>
       </div>
