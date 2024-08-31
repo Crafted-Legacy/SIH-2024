@@ -18,6 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="./single.css">
+    <!-- <script type="module" src="./index.js"></script> -->
     <style>
       /* .font-custom{
         font-family: "Archivo Black", sans-serif;
@@ -247,7 +248,7 @@
           <svg class="w-7 h-7 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
           </svg>              
-          <span class="hidden sm:flex">Account</span>
+          <span id="loggedUserName" class="hidden sm:flex">Account</span>
           <svg class="w-4 h-4 text-gray-900 dark:text-black ms-1 hidden sm:flex" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
           </svg> 
@@ -259,7 +260,7 @@
           </ul>
       
           <div class="p-2 text-sm font-medium text-gray-900 dark:text-black">
-            <a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Sign Out </a>
+            <button id="logout-signout" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Sign Out </button>
           </div>
         </div>
 
