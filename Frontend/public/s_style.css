@@ -73,6 +73,10 @@ body{
     cursor: pointer;
 }
 
+.container button:hover {
+    background-color: #434343;
+}
+
 .container button.hidden{
     background-color: transparent;
     border-color: #fff;
