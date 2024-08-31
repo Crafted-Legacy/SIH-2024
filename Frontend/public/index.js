@@ -24,18 +24,15 @@ const db = getFirestore();
 
 onAuthStateChanged(auth , (user) =>{
     const loggedInUserId = localStorage.getItem('loggedInUserId');
-    
     if(loggedInUserId){
-        
-        const docRef = doc(db , "users" , loggedInUserId);
+        const docRef = doc(db , "user" , loggedInUserId);
+        console.log(docRef);
         getDoc(docRef)
         .then((docSnap)=>{
             console.log(docSnap);
             if(docSnap.exists()){
+                const userData = docSnap.data();
                 document.getElementById('loggedUserName').innerText=userData.name;
-                document.getElementById('loggedUseremail').innerText=userData.email;
-                document.getElementById('loggedUserrole').innerText=userData.selrole;
-                console.log("Found");
             }
             else{
                 console.log("no document found matching id");
@@ -49,6 +46,7 @@ onAuthStateChanged(auth , (user) =>{
         console.log("User Id not found in Localstorage");
     }
 })
+
 
 const signout = document.getElementById('logout-signout');
 
