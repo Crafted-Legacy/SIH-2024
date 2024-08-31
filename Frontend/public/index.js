@@ -60,3 +60,35 @@ signout.addEventListener('click' , ()=> {
         console.error('Error Signing out:',error);
     })
 })
+
+
+const dashboard = document.getElementById('dash');
+
+dashboard.addEventListener('click' ,()=>{
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+        const docRef = doc(db, "user", loggedInUserId);
+        console.log(docRef);
+        getDoc(docRef)
+            .then((docSnap) => {
+                console.log(docSnap);
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    if(userData.selrole === "user"){
+                        window.location.href = 'DashboardUser.html';
+                    }else{
+                        window.location.href = 'DashboradSeller.html';
+                    }
+                }
+                else {
+                    console.log("no document found matching id");
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting document");
+            })
+    }
+    else {
+        console.log("User Id not found in Localstorage");
+    }
+})
