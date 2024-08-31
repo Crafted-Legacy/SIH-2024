@@ -13,6 +13,7 @@ module.exports = {
       'primary': '#67a295',
       'secondary': '#a8a6c9',
       'accent': '#a08db9',
+      'gold':'e8b923',
     },
 
     fontSize: {
