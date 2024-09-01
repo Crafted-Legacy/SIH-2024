@@ -120,7 +120,9 @@ header.shadow .logo{
 .home{
     width: 100%;
     min-height: 440px;
-    background: url("blog-img/banner3.png");
+    background-image: url("blog-img/banner3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: grid;
     justify-content: center;
     align-items: center;

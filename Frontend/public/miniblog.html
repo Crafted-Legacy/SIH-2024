@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crafted Legacy </title>
-    <link rel="shortcut icon" href="../img/logo-dark.png" type="image/x-icon">
+    <title>Crafted Legacy</title>
     <link rel="shortcut icon" href="../img/logo-dark.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,41 +18,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="./single.css">
-    <!-- Box-icon -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="blog.css">
-    <style>
-
-      body{
-        overflow-x: hidden;
-      }
-      .font-custom{
-        font-family: "Archivo Black", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      .logo-font::first-letter{
-        font-family: "Bungee Tint", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: xx-large;
-      }
-
-    </style>
+    <script type="module" src="./index.js"></script>
 </head>
-<body class="bg-gray-200">
-    <!-- <header>
-        <div class="nav container  nav">
-           <div class="logo-class">
-            <img class="logo"    src="../img/logo-light.png" alt="Logo">
-            <h1 class="logo-name">Crafted Legacy</h1>
-           </div>
-        </div>
-    </header> -->
+<body class="bg-gray-100 font-sans">
 
-
-        <!-- navbar start  -->
+    <!-- navbar start  -->
 <nav class="flex items-center justify-between p-6 fixed w-full z-50 bg-white top-0">
         <div class="flex items-center">
             <img src="../img/logo-light.png" alt="Logo" class="h-16 w-16 mr-6">
@@ -106,7 +74,7 @@
 <div class="-mr-18 mt-4">
         <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
           <li>
-            <a href="./index.html" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500 mr-8">
+            <a href="index.html" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500 mr-8">
               Home
             </a>
           </li>
@@ -116,7 +84,7 @@
             </a>
           </li>
           <li class="shrink-0">
-            <a href="./blog.html" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500">
+            <a href="blog.html" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500">
               Blogs
             </a>
           </li>
@@ -260,7 +228,7 @@
           <svg class="w-7 h-7 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
           </svg>              
-          <span class="hidden sm:flex">Account</span>
+          <span id="loggedUserName" class="hidden sm:flex">Account</span>
           <svg class="w-4 h-4 text-gray-900 dark:text-black ms-1 hidden sm:flex" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
           </svg> 
@@ -268,11 +236,11 @@
 
         <div id="userDropdown1" class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow ">
           <ul class="p-2 text-start text-sm font-medium text-white dark:text-black">
-            <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Dashboard </a></li>
+            <li><button id="dash" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Dashboard </button></li>
           </ul>
       
           <div class="p-2 text-sm font-medium text-gray-900 dark:text-black">
-            <a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Sign Out </a>
+            <button id="logout-signout" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Sign Out </button>
           </div>
         </div>
 
@@ -304,193 +272,84 @@
     </div>
     </nav>
 
-    <section class="home mt-36" id="home">
-        <div class="home-text container">
-            <h2 class="home-title">Crafted Legacy</h2>
-            <span class="home-subtitle">From Local Artisans To Global Hearts </span>
+
+<!-- navbar end -->
+
+
+<!-- Header -->
+    <header class="bg-white shadow mt-36">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-3xl font-bold text-gray-800">Handicrafts by Indian Artisans</h1>
+            <p class="text-gray-600">Discover the beauty of handcrafted products and the meticulous process behind their creation.</p>
         </div>
-    </section>
+    </header>
 
-    <section class="about container sec-ganesha" id="about">
-        <div class="contentBx">
-            <h2 class="titleText">Celebrate Ganesha Festival with Authentic Indian Art: Bring Home Handcrafted Blessings</h2>
-            <p class="title-text">
-                Celebrate Ganesh Chaturthi with a handcrafted Lord Ganesha idol made by skilled Indian artisans. These unique pieces blend tradition with artistry, offering you the chance to bring a touch of Indian culture into your home while supporting local craftsmanship. Invite blessings and prosperity with these beautiful creations.
-
-
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-10 ">
+        <article class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">The Art of Handcrafting: From Creation to Delivery</h2>
+            
+            <img src="../img/blog.png" alt="Handicrafts" class="w-full rounded-lg mb-6">
+            
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Indian handicrafts are a testimony to the country's rich cultural heritage. Each piece is a labor of love, 
+                reflecting the unique skills and creativity of artisans from different regions of India. In this blog, 
+                we will take you through the journey of how these beautiful handicrafts are made and the careful process 
+                involved in preparing them for delivery to your doorstep.
             </p>
-            <a href="#" class="btn2  g-btn">Explore More</a>
-        </div>
-        <div class="imgBx">
-            <img src="../img/ganesha.webp" alt="" class="fitBg  ganesha">
-        </div>
-    </section>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 1: Sourcing the Raw Materials</h3>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                The journey begins with sourcing high-quality raw materials. Depending on the type of handicraft, 
+                materials such as clay, wood, fabric, or metal are procured from local suppliers who share a commitment 
+                to quality and sustainability.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 2: Crafting the Product</h3>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                The raw materials are then handed over to skilled artisans, each of whom specializes in a particular craft. 
+                Whether it's intricate wood carving, pottery, weaving, or embroidery, the artisans pour their heart and soul 
+                into every piece. The crafting process can take anywhere from a few days to several weeks, depending on the 
+                complexity of the design.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 3: Quality Check</h3>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Once the product is ready, it undergoes a thorough quality check. This step ensures that each item meets 
+                the high standards of craftsmanship that our artisans are known for. Any defects are rectified before the 
+                product moves on to the next stage.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 4: Packaging for Delivery</h3>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                The packaging process is just as meticulous as the crafting process. Each product is carefully wrapped in 
+                eco-friendly materials to ensure it arrives safely at your door. We use sturdy boxes and biodegradable 
+                padding to protect the items during transit, and every package is sealed with care.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 5: Shipping to You</h3>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Finally, the package is handed over to our trusted delivery partners, who ensure that it reaches you 
+                in perfect condition. We provide tracking information so you can monitor your order every step of the way.
+            </p>
+            
+            <p class="text-gray-700 leading-relaxed">
+                By the time your handcrafted item arrives at your doorstep, it has already passed through the hands 
+                of many skilled artisans and workers, each of whom has contributed to its journey. When you purchase 
+                from us, you are not just buying a product; you are supporting the rich cultural heritage of India and 
+                the talented artisans who keep these traditions alive.
+            </p>
+        </article>
+    </main>
 
-    <div class="post-filter container mb-10">
-        <span class="filter-item active-filter" data-filter="all">All</span>
-        <span class="filter-item" data-filter="tech">Home Decor</span>
-        <span class="filter-item" data-filter="food">Art & Collection</span>
-        <span class="filter-item" data-filter="news">Attries</span>
-    </div>
-    
-    <div class="post container">
-        <!-- Post 1 -->
-        <div class="post-box tech post-btn" >
-            <img src="blog-img/hm1.JPG" alt="" class="post-img">
-            <!-- <h2 class="category  ">Tech</h2> -->
-            <a href="#" class="post-title">Sarees</a>
-            <span class="post-date"></span>
-            <p class="post-description">Genuine artistry woven into every thread</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">House of Sarees</span>
-            </div>
-        </div>
-        <!-- Post 2 -->
-        <div class="post-box food post-btn" >
-            <img src="blog-img/ac1.JPG"" class="post-img">
-            <!-- <h2 class="category">Tech</h2> -->
-            <a href="#" class="post-title">Home Decor</a>
-            <span class="post-date"></span>
-            <p class="post-description">Transform your space with timeless indian elegance</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">House of Decor</span>
-            </div>
-        </div>
-        <!-- Post 3 -->
-        <div class="post-box food post-btn">
-            <img src="blog-img/ac2.JPG" alt="" class="post-img">
-            <!-- <h2 class="category">Food</h2> -->
-            <a href="#" class="post-title">Hand crafted jewellery</a>
-            <span class="post-date"></span>
-            <p class="post-description">Crafted in India cherished world wide</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">Vikas jhamwar</span>
-            </div>
-        </div>
-        <!-- Post 4 -->
-        <div class="post-box news post-btn">
-            <img src="blog-img/at1.JPG" alt="" class="post-img">
-            <!-- <h2 class="category">Tech</h2> -->
-            <a href="#" class="post-title">Clothing</a>
-            <span class="post-date"></span>
-            <p class="post-description">Where tradition meets trend</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">The weavers club</span>
-            </div>
-        </div>
-        <!-- Post 5 -->
-        <div class="post-box tech post-btn">
-            <img src="blog-img/hm2.JPG" alt="" class="post-img">
-            <!-- <h2 class="category">Tech</h2> -->
-            <a href="#" class="post-title">The home Decor</a>
-            <span class="post-date"></span>
-            <p class="post-description">Make every room a masterpiece</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">Home Decor</span>
-            </div>
-        </div>
-        <!-- Post 6 -->
-        <div class="post-box news post-btn">
-            <img src="blog-img/at2.JPG" alt="" class="post-img">
-            <!-- <h2 class="category">News</h2> -->
-            <a href="#" class="post-title">Dhotis for men</a>
-            <span class="post-date"></span>
-            <p class="post-description">Draped in culture,styled for today</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">The dhoti hub</span>
-            </div>
-        </div>
-        <!-- Post 7 -->
-        <div class="post-box tech post-btn">
-            <img src="blog-img/hm3.JPG" alt="" class="post-img">
-            <!-- <h2 class="category">Tech</h2> -->
-            <a href="#" class="post-title">Scented candles</a>
-            <span class="post-date"></span>
-            <p class="post-description">Ignite your senses illuminate your home</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">The scented candle</span>
-            </div>
-        </div>
-        <!-- Post 1 -->
-        <div class="post-box news post-btn">
-            <img src="blog-img/at3.JPG" alt="" class="post-img">
-            <!-- <h2 class="category">News</h2> -->
-            <a href="#" class="post-title">Woven sarees</a>
-            <span class="post-date"></span>
-            <p class="post-description">Unfold the beauty of tradition</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">Weaving artistry</span>
-            </div>
-        </div>
-        <!-- Post 9 -->
-        <div class="post-box food post-btn">
-            <img src="blog-img/ac3.JPG" alt="" class="post-img">
-            <!-- <h2 class="category">Food</h2> -->
-            <a href="#" class="post-title">Home Decor</a>
-            <span class="post-date"></span>
-            <p class="post-description">Curated for the home of your dreams</p>
-            <div class="profile">
-                <img src="images/testi1.jpg" alt="" class="profile-img">
-                <span class="profile-name">Decor club</span>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="sec aboutus">
-                <h2>About Us</h2>
-                <p>You can look for us on</p>
-                <ul class="sci">
-                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
-                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
-                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
-                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="sec quicklinks">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
-            <div class="sec contactBx">
-                <h2>Contact Info</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class='bx bxs-map'></i></span>
-                        <span>Sit tumkur <br> BH road <br> Tumkur</span>
-                    </li>
-                    <li>
-                        <span><i class='bx bx-envelope' ></i></span>
-                        <p><a href="mailto:codemyhobby9@gmail.com">feedback@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t py-6">
+        <div class="container mx-auto justify-center items-center flex">
+            <img src="../img/logo-light.png" height="80" width="80" alt="">
+            <p class="text-gray-600">© 2024 Handicrafts by Indian Artisans. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-
-      const postButtons = document.getElementsByClassName('post-btn');
-
-// Loop through each element and attach an event listener
-for (let i = 0; i < postButtons.length; i++) {
-    postButtons[i].addEventListener('click', () => {
-        window.location.href = 'miniblog.html';
-    });
-}
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="blog.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
 </html>
