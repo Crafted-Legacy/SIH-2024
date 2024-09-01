@@ -13,6 +13,7 @@ let home_message1=document.getElementById("home-message1");
 let home_payment1=document.getElementById("your-payment1");
 let home_upgrade1=document.getElementById("your-upgrade1");
 let home_help1=document.getElementById("your-help1");
+message1.style.display = "none";
 account1.addEventListener('click',()=>
 { console.log("clicked")
    myaccount1.style.display="block";
@@ -47,7 +48,7 @@ yourOrder1.addEventListener('click',()=>
 home_message1.addEventListener('click',()=>
 {
    myaccount1.style.display="none";
-   message1.style.display="block";
+   message1.style.display="flex";
    your_Order1.style.display="none";
    
   

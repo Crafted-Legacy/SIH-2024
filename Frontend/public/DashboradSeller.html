@@ -226,7 +226,7 @@
 
 <!-- your order  -->
 <div id="your-order" class=" max-w-4xl mx-auto p-6 bg-white rounded-lg shadow mt-36 ml-96 hidden">
-        <h1 class="text-2xl font-semibold mb-6" id="orders">Orders Management</h1>
+        <h1 class="text-2xl font-semibold mb-6" id="orders-1">Orders Management</h1>
 
         <div class="flex border-b mb-4">
             <button id="new-orders-btn" class="py-2 px-4 border-b-4 border-blue-500 text-blue-500">New Orders</button>
@@ -234,7 +234,7 @@
         </div>
 
         <!-- New Orders Section -->
-        <div id="orders" class="block">
+        <div id="orders" class="">
             <h2 class="text-xl font-semibold mb-4">New Orders</h2>
             <div id="order-1" class="border-t border-gray-300 py-6 flex justify-between items-center">
                 <div class="flex flex-col min-w-[150px] mr-10">
@@ -278,7 +278,7 @@
         </div>
 
         <!-- Order History Section -->
-        <div id="order-history" class="hidden mt-6 hidden">
+        <div id="order-history" class="hidden mt-6">
             <h2 class="text-xl font-semibold mb-4">Order History</h2>
             <div class="border-t border-gray-300 py-6 flex justify-between items-center">
                 <div class="flex flex-col min-w-[150px] mr-10">
@@ -852,7 +852,7 @@
             document.getElementById('order-history-btn').classList.remove('border-gray-300');
             document.getElementById('new-orders-btn').classList.remove('border-transparent');
             document.getElementById('order-history-btn').classList.add('border-transparent');
-            document.getElementById('new-orders-btn').classList.remove('border-blue-500', 'text-blue-500');
+            document.getElementById('order-history-btn').classList.remove('border-blue-500', 'text-blue-500');
         });
 
         document.getElementById('order-history-btn').addEventListener('click', () => {
@@ -864,14 +864,6 @@
             document.getElementById('new-orders-btn').classList.add('border-transparent');
         });
 
-        document.getElementById('order-history-btn').addEventListener('click', () => {
-            document.getElementById('orders').classList.add('hidden');
-            document.getElementById('order-history').classList.remove('hidden');
-            document.getElementById('order-history-btn').classList.add('border-blue-500', 'text-blue-500');
-            document.getElementById('new-orders-btn').classList.remove('border-blue-500', 'text-blue-500');
-            document.getElementById('order-history-btn').classList.remove('border-transparent');
-            document.getElementById('new-orders-btn').classList.add('border-transparent');
-        });
     </script>
 
    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>

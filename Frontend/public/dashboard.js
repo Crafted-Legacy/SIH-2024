@@ -115,7 +115,7 @@ yourOrder.addEventListener('click',()=>
 home_message.addEventListener('click',()=>
 {
    myaccount.style.display="none";
-   message.style.display="block";
+   message.style.display="flex";
    your_Order.style.display="none";
    product.style.display="none";
   
