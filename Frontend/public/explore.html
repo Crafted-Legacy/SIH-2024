@@ -421,14 +421,15 @@
 <!-- product listing  -->
 
 
-<header class=" hidden text-black p-4 mt-36 ml-96">
+<div class="" id="product-listing">
+  <header class=" text-black p-4 mt-36 ml-96">
         <h1 class="text-2xl font-bold">Product Listing</h1>
     </header>
 
-    <main class=" hidden p-4 w-2/3 ml-96">
+    <main class="  p-4 w-2/3 ml-96">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <!-- Product Card 1 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" id="product-list">
                 <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h2 class="text-lg font-semibold">Product 1</h2>
@@ -440,68 +441,26 @@
                     </div>
                 </div>
             </div>
-            <!-- Product Card 2 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h2 class="text-lg font-semibold">Product 2</h2>
-                    <p class="text-gray-600">Seller: Jane Smith</p>
-                    <p class="text-xl font-bold mt-2">$35.00</p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <button onclick="addToCart('Product 2')" class="bg-blue-500 text-white py-2 px-4 rounded">Add to Cart</button>
-                        <a href="product-detail.html?product=2" class="text-blue-500 hover:underline">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product Card 3 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h2 class="text-lg font-semibold">Product 3</h2>
-                    <p class="text-gray-600">Seller: Alice Johnson</p>
-                    <p class="text-xl font-bold mt-2">$45.00</p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <button onclick="addToCart('Product 3')" class="bg-blue-500 text-white py-2 px-4 rounded">Add to Cart</button>
-                        <a href="product-detail.html?product=3" class="text-blue-500 hover:underline">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product Card 4 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h2 class="text-lg font-semibold">Product 4</h2>
-                    <p class="text-gray-600">Seller: Bob Brown</p>
-                    <p class="text-xl font-bold mt-2">$55.00</p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <button onclick="addToCart('Product 4')" class="bg-blue-500 text-white py-2 px-4 rounded">Add to Cart</button>
-                        <a href="product-detail.html?product=4" class="text-blue-500 hover:underline">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more product cards as needed -->
+
         </div>
     </main>
+</div>
 
 <!-- product detail -->
-<header class="hidden text-black p-4 mt-36 ml-80">
-    <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Product Detail</h1>
-            <button class="mb-10 flex items-center bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10.293 14.293a1 1 0 0 1-1.414-1.414L12.586 8l-3.707-3.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4z"/>
-        </svg>
-        <span>Go Back</span>
-    </button>
-    </div>
+<div class="hidden" id="product-detail">
+  <header class=" text-black p-4 mt-36 ml-80">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Product Info</h1>
+            <a href="./explore.html" class="text-white bg-blue-500 rounded-md p-3 hover:underline mr-60">Go Back</a>
+        </div>
     </header>
 
 
  <!-- Main Content -->
-    <main class="hidden container ml-80 my-8 p-4 bg-white rounded-lg shadow-md w-4/6 ">
+    <main class="container ml-80 my-8 p-4 bg-white rounded-lg shadow-md w-4/6 ">
         <div class="space-y-8">
             <!-- Seller Information -->
-            <section>
+            <section id="seller-btn">
                 <h2 class="text-2xl font-bold mb-4">Seller Information</h2>
                 <div class="flex items-center space-x-4 mb-4">
                     <img src="https://via.placeholder.com/100" alt="Seller Image" class="w-24 h-24 rounded-full shadow-md">
@@ -597,13 +556,15 @@
             </section>
         </div>
     </main>
+</div>
 
 
  <!-- Header -->
-    <header class=" text-black p-4 mt-36 ml-80">
+  <div class="hidden" id="seller-profile">
+      <header class=" text-black p-4 mt-36 ml-80">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Seller Profile</h1>
-            <a href="product-list.html" class="text-white bg-blue-500 rounded-md p-3 hover:underline mr-60">Back to Product</a>
+            <a href="./explore.html" class="text-white bg-blue-500 rounded-md p-3 hover:underline mr-60">Back to Product</a>
         </div>
     </header>
 
@@ -611,7 +572,7 @@
     <main class=" container mx-auto my-8 p-4 bg-white rounded-lg shadow-md ml-80 w-2/3">
         <div class="space-y-8">
             <!-- Seller Information -->
-            <section>
+            <section id="seller-btn">
                 <div class="flex items-center space-x-6">
                     <img src="https://via.placeholder.com/100" alt="Seller Profile Image" class="w-24 h-24 rounded-full shadow-md">
                     <div>
@@ -658,6 +619,7 @@
             </section>
         </div>
     </main>
+  </div>
 
 
 <script>
@@ -688,6 +650,22 @@ priceRange.addEventListener('input', function() {
         function addToCart(productName) {
             alert(`${productName} added to cart!`);
         }
+
+let plisting=document.getElementById('product-listing');
+let pdetail=document.getElementById('product-detail');
+let sprofile=document.getElementById('seller-profile');
+
+document.getElementById('product-list').addEventListener('click', () => {
+            document.getElementById('product-detail').classList.remove('hidden');        
+            document.getElementById('product-listing').classList.add('hidden');
+            document.getElementById('seller-profile').classList.add('hidden');
+});
+document.getElementById('seller-btn').addEventListener('click', () => {
+            document.getElementById('product-detail').classList.add('hidden');        
+            document.getElementById('product-listing').classList.add('hidden');
+            document.getElementById('seller-profile').classList.remove('hidden');
+});
+
 </script>
    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
