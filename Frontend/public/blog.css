@@ -79,7 +79,7 @@ header{
 header.shadow{
     background: var(--bg-color);
     box-shadow: 0 1px 4px hsl(0 4% 14% / 10%);
-    transition: .5s;
+    transition: .4s;
 }
 
 header.shadow .logo{
@@ -114,13 +114,13 @@ header.shadow .logo{
 
 .login:hover{
     background: hsl(199, 98%, 56%);
-    transition: .5s;
+    transition: .4s;
 }
 
 .home{
     width: 100%;
     min-height: 440px;
-    background: url("images/banner2.png");
+    background: url("blog-img/banner3.png");
     display: grid;
     justify-content: center;
     align-items: center;
@@ -187,11 +187,13 @@ header.shadow .logo{
     border: .8px solid #111;
     color: #333;
     text-decoration: none;
-    transition: 0.5s;
+    transition: 0.2s;
+    border-radius: 10px;
+
 }
 
 .btn2:hover{
-    background-color: var(--second-color);
+    background-color: rgb(59 130 246);
     border: none;
     color: #fff;
 }
@@ -211,7 +213,7 @@ header.shadow .logo{
 }
 
 .active-filter{
-    background: var(--second-color);
+    background-color: rgb(59 130 246);
     color: var(--bg-color);
     padding: 4px 10px;
     border-radius: 4px;
@@ -334,7 +336,7 @@ footer{
     left: 0;
     width: 50px;
     height: 2px;
-    background: rgb(77, 228, 255);
+    background: rgb(59 130 246);
 }
 
 footer p{
@@ -361,11 +363,11 @@ footer p{
     margin-right: 10px;
     text-decoration: none;
     border-radius: 4px;
-    transition: .5s;
+    transition: .2s;
 }
 
 .sci li a:hover{
-    background: rgb(77, 228, 255);
+    background: rgb(59 130 246);
 }
 
 .sci i a .bx{
@@ -387,7 +389,7 @@ footer p{
     text-decoration: none;
     margin-bottom: 10px;
     display: inline-block;
-    transition: .3s;
+    transition: .2s;
 }
 
 .quicklinks ul li a:hover{
@@ -421,7 +423,7 @@ footer p{
 .contactBx .info li a{
     color: #999;
     text-decoration: none;
-    transition: .5s;
+    transition: .2s;
 }
 
 .contactBx .info li a:hover{
@@ -581,4 +583,14 @@ footer p{
     }
 }
 
-
+.sec-ganesha{
+    display: flex;
+    flex-direction: row;
+    gap:15px;
+    text-align: center;
+    align-items: center;
+    max-width: 100;
+    width: 50%;
+    margin-left: 15%;
+    
+}
