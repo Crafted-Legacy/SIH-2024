@@ -60,3 +60,5 @@ signout.addEventListener('click', () => {
             console.error('Error Signing out:', error);
         })
 })
+
+

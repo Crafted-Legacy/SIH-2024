@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted Legacy</title>
+    <link rel="shortcut icon" href="../img/logo-dark.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Matemasie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee+Tint&family=Matemasie&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./single.css">
+    <script type="module" src="./dashboard.js"></script>
+    <style>
+        .review-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        .rating span {
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .review-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+        .review-content {
+            flex: 1;
+        }
+        .review-date {
+            font-size: 0.75rem;
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+        .product-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.375rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+   
+
+<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-white dark:border-gray-200 p-2">
+  <div class="px-3 py-3 lg:px-5 lg:pl-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center justify-start rtl:justify-end">
+        <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-white rounded-lg sm:hidden hover:bg-gray-100  focus:ring-gray-200 dark:text-black dark:hover:bg-gray-300">
+            <span class="sr-only">Open sidebar</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+               <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+            </svg>
+         </button>
+        <a href="https://flowbite.com" class="flex ms-2 md:me-24">
+          <img src="../img/logo-light.png" class="h-16 w-16 me-3" alt="FlowBite Logo" />
+          <span class="self-center text-xl font-semibold sm:text-xl whitespace-nowrap dark:text-black">Crafted Legacy</span>
+        </a>
+      </div>
+      <div class=" w-auto flex flex-col ">
+
+        <form class="hidden lg:block max-w-lg mx-auto">
+    <div class="flex">
+        <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
+        <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-300 border border-gray-600 rounded-s-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100  dark:bg-gray-800  dark:hover:bg-gray-900 dark:focus:ring-secondary dark:text-white dark:border-secondary" type="button">All categories <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+  </svg></button>
+        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-secondary">
+            <ul class=" z-10 py-2 text-sm text-black dark:text-black" aria-labelledby="dropdown-button">
+            <li>
+                <button type="button" class="   inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Puja Samagri</button>
+            </li>
+            <li>
+                <button type="button" class="  inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Attries</button>
+            </li>
+            <li>
+                <button type="button" class="  inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Handicrafts</button>
+            </li>
+            <li>
+                <button type="button" class="  inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Terracotta Arts</button>
+            </li>
+            <li>
+                <button type="button" class="  inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Moya of Joynagar</button>
+            </li>
+            <li>
+                <button type="button" class="  inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Home Decor</button>
+            </li>
+            </ul>
+        </div>
+        <div class="relative w-full">
+            <input type="search" id="search-dropdown" class="block p-2.5  w-96 z-20 text-sm text-gray-900 bg-gray-50 rounded-e-full focus:ring-blue-500 focus:border-blue-500 dark:bg-secondary dark:border-s-gray-700  dark:border-black dark:placeholder-gray-400 dark:text-black dark:focus:border-blue-500" placeholder="Search Products, Arttires, Sellers" required />
+            <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white rounded-e-full border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">
+                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+                <span class="sr-only">Search</span>
+            </button>
+        </div>
+    </div>
+</form>
+
+<div class="-mr-18 mt-4">
+        <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
+          <li>
+            <a href="index.html" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500 mr-8">
+              Home
+            </a>
+          </li>
+          <li class="shrink-0">
+            <a href="./explore.html" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500 mr-8">
+              Explore
+            </a>
+          </li>
+          <li class="shrink-0">
+            <a href="#" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500 mr-8">
+              Premium
+            </a>
+          </li>
+          <li class="shrink-0">
+            <a href="blog.html" title="" class="flex text-base font-medium text-gray-900 hover:text-blue-900 dark:text-black hover:scale-105 dark:hover:text-primary-500">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+
+      </div>
+      <div class="flex items-center">
+          
+
+        <div class="flex items-center lg:space-x-2">
+
+        <button id="myCartDropdownButton1" data-dropdown-toggle="myCartDropdown1" type="button" class="inline-flex items-center rounded-lg justify-center p-2 hover:scale-105 text-sm font-medium leading-none text-gray-900 dark:text-black">
+          <span class="sr-only">
+            Cart
+          </span>
+          <svg class="w-7 h-7 lg:me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+          </svg> 
+          <span class="hidden sm:flex">My Cart</span>
+          <svg class="hidden sm:flex w-4 h-4 text-gray-900 dark:text-black ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+          </svg>              
+        </button>
+
+        <div id="myCartDropdown1" class="hidden z-10 mx-auto max-w-sm space-y-4 overflow-hidden rounded-lg bg-white p-4 antialiased shadow-lg ">
+          <div class="grid grid-cols-2">
+            <div>
+              <a href="#" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-black hover:underline">Apple iPhone 15</a>
+              <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$599</p>
+            </div>
+      
+            <div class="flex items-center justify-end gap-6">
+              <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 1</p>
+      
+              <button data-tooltip-target="tooltipRemoveItem1a" type="button" class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only"> Remove </span>
+                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div id="tooltipRemoveItem1a" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                Remove item
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="grid grid-cols-2">
+            <div>
+              <a href="#" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-black hover:underline">Apple iPad Air</a>
+              <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$499</p>
+            </div>
+      
+            <div class="flex items-center justify-end gap-6">
+              <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 1</p>
+      
+              <button data-tooltip-target="tooltipRemoveItem2a" type="button" class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only"> Remove </span>
+                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div id="tooltipRemoveItem2a" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                Remove item
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="grid grid-cols-2">
+            <div>
+              <a href="#" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-black hover:underline">Apple Watch SE</a>
+              <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$598</p>
+            </div>
+      
+            <div class="flex items-center justify-end gap-6">
+              <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 2</p>
+      
+              <button data-tooltip-target="tooltipRemoveItem3b" type="button" class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only"> Remove </span>
+                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div id="tooltipRemoveItem3b" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                Remove item
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="grid grid-cols-2">
+            <div>
+              <a href="#" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-black hover:underline">Sony Playstation 5</a>
+              <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$799</p>
+            </div>
+      
+            <div class="flex items-center justify-end gap-6">
+              <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 1</p>
+      
+              <button data-tooltip-target="tooltipRemoveItem4b" type="button" class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only"> Remove </span>
+                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div id="tooltipRemoveItem4b" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                Remove item
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="grid grid-cols-2">
+            <div>
+              <a href="#" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-black hover:underline">Apple iMac 20"</a>
+              <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$8,997</p>
+            </div>
+      
+            <div class="flex items-center justify-end gap-6">
+              <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 3</p>
+      
+              <button data-tooltip-target="tooltipRemoveItem5b" type="button" class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                <span class="sr-only"> Remove </span>
+                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div id="tooltipRemoveItem5b" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                Remove item
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
+            </div>
+          </div>
+      
+          <a href="#" title="" class="mb-2 me-2 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" role="button"> Proceed to Checkout </a>
+        </div>
+
+        <button id="userDropdownButton1" data-dropdown-toggle="userDropdown1" type="button" class="inline-flex items-center rounded-lg justify-center p-2 hover:scale-105 text-sm font-medium leading-none text-white dark:text-black">
+          <svg class="w-7 h-7 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+          </svg>              
+          <span id="loggedUserName" class="hidden sm:flex">Account</span>
+          <svg class="w-4 h-4 text-gray-900 dark:text-black ms-1 hidden sm:flex" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+          </svg> 
+        </button>
+
+        <div id="userDropdown1" class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow ">
+          <ul class="p-2 text-start text-sm font-medium text-white dark:text-black">
+            <li><button id="dash" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Dashboard </button></li>
+          </ul>
+      
+          <div class="p-2 text-sm font-medium text-gray-900 dark:text-black">
+            <button id="logout-signout" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-200"> Sign Out </button>
+          </div>
+        </div>
+
+        <button type="button" data-collapse-toggle="ecommerce-navbar-menu-1" aria-controls="ecommerce-navbar-menu-1" aria-expanded="false" class="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md dark:hover:bg-gray-700 p-2 text-gray-900 dark:text-black">
+          <span class="sr-only">
+            Open Menu
+          </span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+          </svg>                
+        </button>
+      </div>
+      <div id="ecommerce-navbar-menu-1" class="bg-gray-50 dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden px-4 mt-4">
+      <ul class="text-gray-900 dark:text-black text-sm font-medium  space-y-3">
+        <li>
+          <a href="#" class="hover:text-blue-900 dark:hover:text-primary-500">Home</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-blue-900 dark:hover:text-primary-500">Explore</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-blue-900 dark:hover:text-primary-500">Blog</a>
+        </li>
+  
+        <li>
+          <a href="#" class="hover:text-blue-900 dark:hover:text-primary-500">Premium</a>
+        </li>
+      </ul>
+    </div>
+        </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Sidebar start  -->
+
+<aside id="logo-sidebar" class="pt-36 fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-white">
+      <ul class="mt-8 space-y-2 font-medium">
+         <li>
+            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-black hover:bg-gray-100 dark:hover:bg-gray-300 group">
+               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                  <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"/>
+               </svg>
+               <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
+            </a>
+         </li>
+         
+      </ul>
+      <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+         <!-- Filter Section -->
+         <li>
+            <button id="filter-toggle" class="w-full flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-300 dark:text-black group">
+               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M3 5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2H3V5Zm0 4h14v2H3v-2Zm0 4h14v2H3v-2Z"/>
+               </svg>
+               <span class="ms-3">Filter</span>
+            </button>
+            <div id="filter-options" class="mt-4 hidden">
+               <h3 class="text-lg font-semibold mb-2">Filter By</h3>
+               <ul class="space-y-2">
+                  <li>
+                     <h4 class="text-sm font-medium">Category</h4>
+                     <ul class="space-y-1">
+                        <li><input type="checkbox" id="category1" class="mr-2"><label for="category1">Traditional Attire's</label></li>
+                        <li><input type="checkbox" id="category2" class="mr-2"><label for="category2">Handicrafts</label></li>
+                        <li><input type="checkbox" id="category3" class="mr-2"><label for="category3">Home Decor</label></li>
+                        <li><input type="checkbox" id="category4" class="mr-2"><label for="category4">Art and Collections</label></li>
+                        <li><input type="checkbox" id="category5" class="mr-2"><label for="category5">Eco-Friendly Products</label></li>
+                     </ul>
+                  </li>
+                  <li>
+                     <h4 class="text-sm font-medium">Price</h4>
+                     <input type="range" min="0" max="1000" step="10" class="w-full mt-2" id="price-range">
+                     <div class="flex justify-between text-xs mt-1">
+                        <span id="price-min">$0</span>
+                        <span id="price-max">$1000</span>
+                     </div>
+                  </li>
+                  <li>
+                     <h4 class="text-sm font-medium">Season</h4>
+                     <select id="season" class="w-full mt-1 rounded px-5 text-sm h-10">
+                        <option value="">All Seasons</option>
+                        <option value="summer">Summer</option>
+                        <option value="winter">Winter</option>
+                        <option value="monsoon">Monsoon</option>
+                     </select>
+                  </li>
+                  <li>
+                     <h4 class="text-sm font-medium">Cloth Size</h4>
+                     <select id="size" class="w-full mt-1 rounded px-5 text-sm h-10">
+                        <option value="">All Sizes</option>
+                        <option value="s">Small</option>
+                        <option value="m">Medium</option>
+                        <option value="l">Large</option>
+                        <option value="xl">Extra Large</option>
+                     </select>
+                  </li>
+                  <li>
+                     <h4 class="text-sm font-medium">Gender</h4>
+                     <select id="gender" class="w-full mt-1 rounded px-5 text-sm h-10">
+                        <option value="">All Genders</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="unisex">Unisex</option>
+                     </select>
+                  </li>
+               </ul>
+            </div>
+         </li>
+      </ul>
+   </div>
+</aside>
+
+<!-- product listing  -->
+
+
+<header class=" hidden text-black p-4 mt-36 ml-96">
+        <h1 class="text-2xl font-bold">Product Listing</h1>
+    </header>
+
+    <main class=" hidden p-4 w-2/3 ml-96">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Product Card 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Product 1</h2>
+                    <p class="text-gray-600">Seller: John Doe</p>
+                    <p class="text-xl font-bold mt-2">$20.00</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button onclick="addToCart('Product 1')" class="bg-blue-500 text-white py-2 px-4 rounded">Add to Cart</button>
+                        <a href="product-detail.html?product=1" class="text-blue-500 hover:underline">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Product 2</h2>
+                    <p class="text-gray-600">Seller: Jane Smith</p>
+                    <p class="text-xl font-bold mt-2">$35.00</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button onclick="addToCart('Product 2')" class="bg-blue-500 text-white py-2 px-4 rounded">Add to Cart</button>
+                        <a href="product-detail.html?product=2" class="text-blue-500 hover:underline">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Product 3</h2>
+                    <p class="text-gray-600">Seller: Alice Johnson</p>
+                    <p class="text-xl font-bold mt-2">$45.00</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button onclick="addToCart('Product 3')" class="bg-blue-500 text-white py-2 px-4 rounded">Add to Cart</button>
+                        <a href="product-detail.html?product=3" class="text-blue-500 hover:underline">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/300" alt="Product Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Product 4</h2>
+                    <p class="text-gray-600">Seller: Bob Brown</p>
+                    <p class="text-xl font-bold mt-2">$55.00</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button onclick="addToCart('Product 4')" class="bg-blue-500 text-white py-2 px-4 rounded">Add to Cart</button>
+                        <a href="product-detail.html?product=4" class="text-blue-500 hover:underline">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more product cards as needed -->
+        </div>
+    </main>
+
+<!-- product detail -->
+<header class="hidden text-black p-4 mt-36 ml-80">
+    <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Product Detail</h1>
+            <button class="mb-10 flex items-center bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10.293 14.293a1 1 0 0 1-1.414-1.414L12.586 8l-3.707-3.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4z"/>
+        </svg>
+        <span>Go Back</span>
+    </button>
+    </div>
+    </header>
+
+
+ <!-- Main Content -->
+    <main class="hidden container ml-80 my-8 p-4 bg-white rounded-lg shadow-md w-4/6 ">
+        <div class="space-y-8">
+            <!-- Seller Information -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Seller Information</h2>
+                <div class="flex items-center space-x-4 mb-4">
+                    <img src="https://via.placeholder.com/100" alt="Seller Image" class="w-24 h-24 rounded-full shadow-md">
+                    <div>
+                        <h3 class="text-xl font-semibold">Seller Name</h3>
+                        <p class="text-gray-600">Seller description or bio here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div class="flex space-x-2 mt-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Verified</span>
+                            <button class="bg-blue-500 text-white w-20 px-2 py-1 rounded">Chat</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Seller Reviews</h4>
+                    <div class="review-card">
+                        <p class="text-sm font-medium">John Doe</p>
+                        <p class="text-gray-600">This seller provided excellent service. The product was exactly as described and shipped quickly.</p>
+                    </div>
+                    <div class="review-card">
+                        <p class="text-sm font-medium">Jane Smith</p>
+                        <p class="text-gray-600">Great experience! The seller was responsive and the product quality is superb.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Details -->
+            <section>
+                <div class="flex flex-col lg:flex-row lg:space-x-8">
+                    <!-- Product Image -->
+                    <div class="flex-1 mb-4 lg:mb-0">
+                        <img src="https://via.placeholder.com/500x500" alt="Product Image" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                    
+                    <!-- Product Info -->
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-bold mb-2">Product Name</h2>
+                        <p class="text-gray-700 mb-4">This is a detailed description of the product. It provides information about the product's features, materials, and benefits.</p>
+                        <p class="text-xl font-semibold mb-4">Price: $49.99</p>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shipping Details -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Shipping Details</h2>
+                <p class="mb-4">Delivery Partner: XYZ Shipping Co.</p>
+                <h3 class="text-lg font-semibold mb-2">Delivery Rules</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Delivery within 5-7 business days.</li>
+                    <li>Free shipping on orders over $50.</li>
+                    <li>International shipping available at additional cost.</li>
+                </ul>
+            </section>
+
+            <!-- Product Reviews -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Product Reviews</h2>
+                
+                <!-- Overall Rating -->
+                <div class="mb-6">
+                    <div class="flex items-center">
+                        <span class="text-3xl font-bold">4.5</span>
+                        <div class="rating ml-4">
+                            <span class="text-yellow-500">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span>(150 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Cards -->
+                <!-- Review Cards -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/48" alt="Reviewer Image" class="review-avatar">
+                        <div class="review-content">
+                            <p class="text-sm font-medium">Alex Johnson</p>
+                            <p class="text-gray-600">This product exceeded my expectations. It is well-made and exactly what I was looking for.</p>
+                            <p class="review-date">Reviewed on: March 1, 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/48" alt="Reviewer Image" class="review-avatar">
+                        <div class="review-content">
+                            <p class="text-sm font-medium">Emily Davis</p>
+                            <p class="text-gray-600">The quality is amazing. The product arrived on time and was packaged well. Highly recommend!</p>
+                            <p class="review-date">Reviewed on: March 10, 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+ <!-- Header -->
+    <header class=" text-black p-4 mt-36 ml-80">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Seller Profile</h1>
+            <a href="product-list.html" class="text-white bg-blue-500 rounded-md p-3 hover:underline mr-60">Back to Product</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class=" container mx-auto my-8 p-4 bg-white rounded-lg shadow-md ml-80 w-2/3">
+        <div class="space-y-8">
+            <!-- Seller Information -->
+            <section>
+                <div class="flex items-center space-x-6">
+                    <img src="https://via.placeholder.com/100" alt="Seller Profile Image" class="w-24 h-24 rounded-full shadow-md">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">Seller Name</h2>
+                        <p class="text-gray-600 mb-4">This is a brief description about the seller. Their background, expertise, and any other relevant information goes here.</p>
+                        <p class="text-lg font-semibold">Products Sold: <span class="text-blue-500">150</span></p>
+                    </div>
+                </div>
+                <div class="mt-10">
+                    <h4 class="text-lg font-semibold mb-2">Seller Reviews</h4>
+                    <div class="review-card">
+                        <p class="text-sm font-medium">John Doe</p>
+                        <p class="text-gray-600">This seller provided excellent service. The product was exactly as described and shipped quickly.</p>
+                    </div>
+                    <div class="review-card">
+                        <p class="text-sm font-medium">Jane Smith</p>
+                        <p class="text-gray-600">Great experience! The seller was responsive and the product quality is superb.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products List -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Products from This Seller</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Product Card -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Product Image" class="product-image mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Product Name</h3>
+                        <p class="text-gray-600 mb-2">Short description of the product. It includes key features and highlights.</p>
+                        <p class="text-lg font-bold text-blue-500">$29.99</p>
+                        <a href="product-detail.html" class="block mt-4 text-blue-500 hover:underline">View Details</a>
+                    </div>
+                    <!-- Repeat Product Card as needed -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Product Image" class="product-image mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Product Name</h3>
+                        <p class="text-gray-600 mb-2">Short description of the product. It includes key features and highlights.</p>
+                        <p class="text-lg font-bold text-blue-500">$49.99</p>
+                        <a href="product-detail.html" class="block mt-4 text-blue-500 hover:underline">View Details</a>
+                    </div>
+                    <!-- Add more product cards as needed -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+<script>
+document.getElementById('filter-toggle').addEventListener('click', function() {
+   const filterOptions = document.getElementById('filter-options');
+   const filterIcon = document.getElementById('filter-icon');
+   
+   if (filterOptions.classList.contains('hidden')) {
+      filterOptions.classList.remove('hidden');
+      filterIcon.style.transform = 'rotate(180deg)';
+   } else {
+      filterOptions.classList.add('hidden');
+      filterIcon.style.transform = 'rotate(0deg)';
+   }
+});
+
+// Update the price range display
+const priceRange = document.getElementById('price-range');
+const priceMin = document.getElementById('price-min');
+const priceMax = document.getElementById('price-max');
+
+priceRange.addEventListener('input', function() {
+   const value = priceRange.value;
+   priceMin.textContent = `$0`;
+   priceMax.textContent = `$${value}`;
+});
+
+        function addToCart(productName) {
+            alert(`${productName} added to cart!`);
+        }
+</script>
+   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+</body>
+</html>
